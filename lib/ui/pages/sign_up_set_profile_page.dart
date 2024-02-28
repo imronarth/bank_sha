@@ -1,10 +1,11 @@
 import 'package:bank_sha/shared/theme.dart';
 import 'package:bank_sha/ui/widgets/buttons.dart';
 import 'package:bank_sha/ui/widgets/forms.dart';
+// import 'package:bank_sha/ui/widgets/forms.dart';
 import 'package:flutter/material.dart';
 
-class SignUpPage extends StatelessWidget {
-  const SignUpPage({super.key});
+class SignUpSetProfilePage extends StatelessWidget {
+  const SignUpSetProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -43,25 +44,49 @@ class SignUpPage extends StatelessWidget {
               color: whiteColor,
             ),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // name input
-                const CustomFormField(
-                  title: "Full Name"
+                // Container(
+                //   width: 120,
+                //   height: 120,
+                //   decoration: BoxDecoration(
+                //     shape: BoxShape.circle,
+                //     color: lightBackgroundColor,
+                //   ),
+                //   child: Center(
+                //     child: Image.asset(
+                //       'assets/ic_upload.png',
+                //       width: 32,
+                //     ),
+                //   ),
+                // ),
+                Container(
+                  width: 120,
+                  height: 120,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage(
+                        "assets/img_profile.png"
+                      )
+                    ),
+                  ),
                 ),
                 const SizedBox(
                   height: 16,
                 ),
-                // email input
-                const CustomFormField(
-                  title: "Email Address"
+                Text(
+                  "Imron Athoriq",
+                  style: blackTextStyle.copyWith(
+                    fontSize: 18,
+                    fontWeight: medium,
+                  ),
                 ),
                 const SizedBox(
-                  height: 16,
+                  height: 30,
                 ),
-                // password input
                 const CustomFormField(
-                  title: "Password",
+                  title: "Set PIN (6 digit number)",
                   obscureText: true,
                 ),
                 const SizedBox(
@@ -69,22 +94,11 @@ class SignUpPage extends StatelessWidget {
                 ),
                 CustomFilledButton(
                   title: "Continue",
-                  onPressed: () {
-                    Navigator.pushNamed(context, "/sign-up-set-profile");
-                  },
+                  onPressed: () {},
                 )
               ],
             ),
           ),
-          const SizedBox(
-            height: 30,
-          ),
-          CustomTextButton(
-            title: "Sign In",
-            onPressed: () {
-              Navigator.pushNamed(context, '/sign-in');
-            },
-          )
         ],
       ),
     );
