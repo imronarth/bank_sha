@@ -1,4 +1,5 @@
 import 'package:bank_sha/shared/theme.dart';
+import 'package:bank_sha/ui/widgets/home_service_item.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -67,6 +68,8 @@ class HomePage extends StatelessWidget {
         children: [
           buildProfile(),
           buildWalletCard(),
+          buildLevel(),
+          buildServices(),
         ],
       ),
     );
@@ -190,4 +193,131 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
+
+  Widget buildLevel() {
+  return Container(
+    margin: const EdgeInsets.only(top: 20),
+    padding: const EdgeInsets.all(22),
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(20),
+      color: whiteColor,
+    ),
+    child: Column(
+      children: [
+        Row(
+          children: [
+            Text(
+              'Level 1',
+              style: blackTextStyle.copyWith(fontWeight: medium),
+            ),
+            const Spacer(),
+            Text(
+              '55% ',
+              style: greenTextStyle.copyWith(fontWeight: semiBold),
+            ),
+            Text(
+              'of Rp.20.000',
+              style: blackTextStyle.copyWith(fontWeight: semiBold),
+            ),
+          ],
+        ),
+        const SizedBox(
+          height: 10
+        ),
+        ClipRRect(
+          borderRadius: BorderRadius.circular(55),
+          child: LinearProgressIndicator(
+            minHeight      : 5,
+            value          : 0.55,
+            valueColor     : AlwaysStoppedAnimation(greenColor),
+            backgroundColor: lightBackgroundColor,
+          ),
+        )
+      ],
+    ),
+  );
+}
+
+  Widget buildServices() {
+    return Container(
+      margin: const EdgeInsets.only(
+        top: 30,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Do Something',
+            style: blackTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: semiBold
+            ),
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              HomeServiceItem(
+                title: "Top up", 
+                iconUrl: "assets/ic_top_up.png", 
+                onTap: () {},
+              ),
+              HomeServiceItem(
+                title: "Send", 
+                iconUrl: "assets/ic_send.png", 
+                onTap: () {},
+              ),
+              HomeServiceItem(
+                title: "Withdraw", 
+                iconUrl: "assets/ic_withdraw.png", 
+                onTap: () {},
+              ),
+              HomeServiceItem(
+                title: "More", 
+                iconUrl: "assets/ic_more.png", 
+                onTap: () {},
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget buildLatestTransaction() {
+    return Container(
+      margin: const EdgeInsets.only(
+        top: 30,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Latest Transaction',
+            style: blackTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: semiBold,
+            ),
+          ),
+          const SizedBox(
+            height: 14,
+          ),
+          Container(
+            padding: const EdgeInsets.all(22),
+            margin: const EdgeInsets.only(
+              top:14,
+            ),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: whiteColor,
+            ),
+
+          )
+        ],
+      ),
+    );
+  }
+
 }
