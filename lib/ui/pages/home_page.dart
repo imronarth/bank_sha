@@ -1,4 +1,5 @@
 import 'package:bank_sha/shared/theme.dart';
+import 'package:bank_sha/ui/widgets/home_latest_transaction_item.dart';
 import 'package:bank_sha/ui/widgets/home_service_item.dart';
 import 'package:flutter/material.dart';
 
@@ -70,6 +71,7 @@ class HomePage extends StatelessWidget {
           buildWalletCard(),
           buildLevel(),
           buildServices(),
+          buildLatestTransaction(),
         ],
       ),
     );
@@ -312,6 +314,40 @@ class HomePage extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               color: whiteColor,
+            ),
+            child: const Column(
+              children: [
+                HomeLatestTrasactionItem(
+                  iconUrl: 'assets/ic_transaction_tu.png', 
+                  title: 'Top Up', 
+                  time: 'Yesteday', 
+                  value: '+ 450.000'
+                ),
+                HomeLatestTrasactionItem(
+                  iconUrl: 'assets/ic_transaction_cb.png', 
+                  title: 'Cashback', 
+                  time: 'Sep 11', 
+                  value: '+ 44.000'
+                ),
+                HomeLatestTrasactionItem(
+                  iconUrl: 'assets/ic_transaction_wd.png', 
+                  title: 'Withdraw', 
+                  time: 'Sep 2', 
+                  value: '- 5.000'
+                ),
+                HomeLatestTrasactionItem(
+                  iconUrl: 'assets/ic_transaction_tf.png', 
+                  title: 'Transfer', 
+                  time: 'Aug 27', 
+                  value: '- 123.500'
+                ),
+                HomeLatestTrasactionItem(
+                  iconUrl: 'assets/ic_transaction_sp.png', 
+                  title: 'Electric', 
+                  time: 'Feb 18', 
+                  value: '- 12.300.000'
+                ),
+              ],
             ),
 
           )
