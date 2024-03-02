@@ -1,6 +1,8 @@
 import 'package:bank_sha/shared/theme.dart';
 import 'package:bank_sha/ui/widgets/home_latest_transaction_item.dart';
 import 'package:bank_sha/ui/widgets/home_service_item.dart';
+import 'package:bank_sha/ui/widgets/home_tips_item.dart';
+import 'package:bank_sha/ui/widgets/home_user_item.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -72,6 +74,8 @@ class HomePage extends StatelessWidget {
           buildLevel(),
           buildServices(),
           buildLatestTransaction(),
+          buildSendAgain(),
+          buildFriendlyTips(),
         ],
       ),
     );
@@ -108,13 +112,9 @@ class HomePage extends StatelessWidget {
             width: 60,
             height: 60,
             decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              image: DecorationImage(
-                image: AssetImage(
-                  'assets/img_profile.png'
-                )
-              )
-            ),
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                    image: AssetImage('assets/img_profile.png'))),
             child: Align(
               alignment: Alignment.topRight,
               child: Container(
@@ -143,29 +143,17 @@ class HomePage extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 220,
-      margin: const EdgeInsets.only(
-        top: 30
-      ),
+      margin: const EdgeInsets.only(top: 30),
       padding: const EdgeInsets.all(30),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(28),
-        image: const DecorationImage(
-          fit: BoxFit.cover,
-          image: AssetImage(
-          'assets/img_card.png'
-          )
-        )
-      ),
+          borderRadius: BorderRadius.circular(28),
+          image: const DecorationImage(
+              fit: BoxFit.cover, image: AssetImage('assets/img_card.png'))),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "Imron Athoriq",
-            style: whiteTextStyle.copyWith(
-              fontSize: 18,
-              fontWeight: medium
-            )
-          ),
+          Text("Imron Athoriq",
+              style: whiteTextStyle.copyWith(fontSize: 18, fontWeight: medium)),
           const SizedBox(
             height: 20,
           ),
@@ -197,48 +185,46 @@ class HomePage extends StatelessWidget {
   }
 
   Widget buildLevel() {
-  return Container(
-    margin: const EdgeInsets.only(top: 20),
-    padding: const EdgeInsets.all(22),
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(20),
-      color: whiteColor,
-    ),
-    child: Column(
-      children: [
-        Row(
-          children: [
-            Text(
-              'Level 1',
-              style: blackTextStyle.copyWith(fontWeight: medium),
-            ),
-            const Spacer(),
-            Text(
-              '55% ',
-              style: greenTextStyle.copyWith(fontWeight: semiBold),
-            ),
-            Text(
-              'of Rp.20.000',
-              style: blackTextStyle.copyWith(fontWeight: semiBold),
-            ),
-          ],
-        ),
-        const SizedBox(
-          height: 10
-        ),
-        ClipRRect(
-          borderRadius: BorderRadius.circular(55),
-          child: LinearProgressIndicator(
-            minHeight      : 5,
-            value          : 0.55,
-            valueColor     : AlwaysStoppedAnimation(greenColor),
-            backgroundColor: lightBackgroundColor,
+    return Container(
+      margin: const EdgeInsets.only(top: 20),
+      padding: const EdgeInsets.all(22),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: whiteColor,
+      ),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Text(
+                'Level 1',
+                style: blackTextStyle.copyWith(fontWeight: medium),
+              ),
+              const Spacer(),
+              Text(
+                '55% ',
+                style: greenTextStyle.copyWith(fontWeight: semiBold),
+              ),
+              Text(
+                'of Rp.20.000',
+                style: blackTextStyle.copyWith(fontWeight: semiBold),
+              ),
+            ],
           ),
-        )
-      ],
-    ),
-  );
-}
+          const SizedBox(height: 10),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(55),
+            child: LinearProgressIndicator(
+              minHeight: 5,
+              value: 0.55,
+              valueColor: AlwaysStoppedAnimation(greenColor),
+              backgroundColor: lightBackgroundColor,
+            ),
+          )
+        ],
+      ),
+    );
+  }
 
   Widget buildServices() {
     return Container(
@@ -250,10 +236,7 @@ class HomePage extends StatelessWidget {
         children: [
           Text(
             'Do Something',
-            style: blackTextStyle.copyWith(
-              fontSize: 16,
-              fontWeight: semiBold
-            ),
+            style: blackTextStyle.copyWith(fontSize: 16, fontWeight: semiBold),
           ),
           const SizedBox(
             height: 16,
@@ -262,23 +245,23 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               HomeServiceItem(
-                title: "Top up", 
-                iconUrl: "assets/ic_top_up.png", 
+                title: "Top up",
+                iconUrl: "assets/ic_top_up.png",
                 onTap: () {},
               ),
               HomeServiceItem(
-                title: "Send", 
-                iconUrl: "assets/ic_send.png", 
+                title: "Send",
+                iconUrl: "assets/ic_send.png",
                 onTap: () {},
               ),
               HomeServiceItem(
-                title: "Withdraw", 
-                iconUrl: "assets/ic_withdraw.png", 
+                title: "Withdraw",
+                iconUrl: "assets/ic_withdraw.png",
                 onTap: () {},
               ),
               HomeServiceItem(
-                title: "More", 
-                iconUrl: "assets/ic_more.png", 
+                title: "More",
+                iconUrl: "assets/ic_more.png",
                 onTap: () {},
               ),
             ],
@@ -309,7 +292,7 @@ class HomePage extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(22),
             margin: const EdgeInsets.only(
-              top:14,
+              top: 14,
             ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
@@ -318,42 +301,134 @@ class HomePage extends StatelessWidget {
             child: const Column(
               children: [
                 HomeLatestTrasactionItem(
-                  iconUrl: 'assets/ic_transaction_tu.png', 
-                  title: 'Top Up', 
-                  time: 'Yesteday', 
-                  value: '+ 450.000'
-                ),
+                    iconUrl: 'assets/ic_transaction_tu.png',
+                    title: 'Top Up',
+                    time: 'Yesteday',
+                    value: '+ 450.000'),
                 HomeLatestTrasactionItem(
-                  iconUrl: 'assets/ic_transaction_cb.png', 
-                  title: 'Cashback', 
-                  time: 'Sep 11', 
-                  value: '+ 44.000'
-                ),
+                    iconUrl: 'assets/ic_transaction_cb.png',
+                    title: 'Cashback',
+                    time: 'Sep 11',
+                    value: '+ 44.000'),
                 HomeLatestTrasactionItem(
-                  iconUrl: 'assets/ic_transaction_wd.png', 
-                  title: 'Withdraw', 
-                  time: 'Sep 2', 
-                  value: '- 5.000'
-                ),
+                    iconUrl: 'assets/ic_transaction_wd.png',
+                    title: 'Withdraw',
+                    time: 'Sep 2',
+                    value: '- 5.000'),
                 HomeLatestTrasactionItem(
-                  iconUrl: 'assets/ic_transaction_tf.png', 
-                  title: 'Transfer', 
-                  time: 'Aug 27', 
-                  value: '- 123.500'
-                ),
+                    iconUrl: 'assets/ic_transaction_tf.png',
+                    title: 'Transfer',
+                    time: 'Aug 27',
+                    value: '- 123.500'),
                 HomeLatestTrasactionItem(
-                  iconUrl: 'assets/ic_transaction_sp.png', 
-                  title: 'Electric', 
-                  time: 'Feb 18', 
-                  value: '- 12.300.000'
-                ),
+                    iconUrl: 'assets/ic_transaction_sp.png',
+                    title: 'Electric',
+                    time: 'Feb 18',
+                    value: '- 12.300.000'),
               ],
             ),
-
           )
         ],
       ),
     );
   }
 
+  Widget buildSendAgain() {
+    return Container(
+      margin: const EdgeInsets.only(
+        top: 30,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Send Again',
+            style: blackTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: semiBold,
+            ),
+          ),
+          const SizedBox(
+            height: 14,
+          ),
+         const SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                HomeUserItem(
+                  imageUrl: 'assets/img_friend1.png', 
+                  username: 'nisba'
+                ),
+                HomeUserItem(
+                  imageUrl: 'assets/img_friend2.png', 
+                  username: 'niset'
+                ),
+                HomeUserItem(
+                  imageUrl: 'assets/img_friend3.png', 
+                  username: 'zahid'
+                ),
+                HomeUserItem(
+                  imageUrl: 'assets/img_friend4.png', 
+                  username: 'farel'
+                ),
+                
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget buildFriendlyTips() {
+    return Container(
+      margin:  const EdgeInsets.only(
+        top: 30,
+        bottom: 50,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Friendly Tips",
+            style: blackTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: semiBold
+            ),
+          ),
+          const SizedBox(
+            height: 14,
+          ),
+          const Center(
+            child: Wrap(
+              spacing: 17,
+              runSpacing: 18,
+              children: [
+                HomeTipsItem(
+                imageUrl: "assets/img_tips1.png", 
+                title: "Best tips for using a credit card", 
+                url: "https://www.google.com"
+                ),
+                HomeTipsItem(
+                imageUrl: "assets/img_tips2.png", 
+                title: "Spot the good pie of finance model", 
+                url: "https://www.pub.dev"
+                ),
+                HomeTipsItem(
+                imageUrl: "assets/img_tips3.png", 
+                title: "Great hack to get better advices", 
+                url: "https://www.google.com"
+                ),
+                HomeTipsItem(
+                imageUrl: "assets/img_tips4.png", 
+                title: "Save more penny buy this instead", 
+                url: "https://www.google.com"
+                ),
+              ]
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
