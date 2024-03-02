@@ -18,6 +18,10 @@ class _PinPageState extends State<PinPage> {
         pinController.text = pinController.text + number;
       });
     }
+
+    if (pinController.text.length == 6 && pinController.text == "123123") {
+      Navigator.pop(context, true);
+    }
   }
 
   deletePin() {
