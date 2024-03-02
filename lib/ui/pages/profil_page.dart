@@ -1,4 +1,5 @@
 import 'package:bank_sha/shared/theme.dart';
+import 'package:bank_sha/ui/widgets/buttons.dart';
 import 'package:bank_sha/ui/widgets/profile_menu_item.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +24,7 @@ class ProfilPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 24),
         children: [
           const SizedBox(
-            height: 40,
+            height: 30,
           ),
           Container(
             padding: const EdgeInsets.symmetric(
@@ -105,7 +106,19 @@ class ProfilPage extends StatelessWidget {
                 ),
               ],
             ),
-          )
+          ),
+          const SizedBox(
+            height: 87,
+          ),
+          CustomTextButton(
+            title: "Report a Problem",
+            onPressed: () {
+              
+            },
+          ),
+          const SizedBox(
+            height: 50,
+          ),
         ],
       ),
     );
