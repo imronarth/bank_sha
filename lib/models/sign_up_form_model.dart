@@ -1,4 +1,4 @@
-class SignUpFormatModel {
+class SignUpFormModel {
   final String? name;
   final String? email;
   final String? password;
@@ -6,7 +6,7 @@ class SignUpFormatModel {
   final String? profilePicture;
   final String? ktp;
 
-  SignUpFormatModel({
+  SignUpFormModel({
     this.name,
     this.email,
     this.password,
@@ -26,12 +26,12 @@ class SignUpFormatModel {
     };
   }
 
-  SignUpFormatModel copyWith({
+  SignUpFormModel copyWith({
     String? pin,
     String? profilePicture,
     String? ktp,
   }) =>
-      SignUpFormatModel(
+      SignUpFormModel(
         name: name,
         email: email,
         password: password,
