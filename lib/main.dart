@@ -5,6 +5,7 @@ import 'package:bank_sha/ui/pages/pin_page.dart';
 import 'package:bank_sha/ui/pages/profil_page.dart';
 import 'package:bank_sha/ui/pages/profile_edit_page.dart';
 import 'package:bank_sha/ui/pages/profile_edit_pin.dart';
+import 'package:bank_sha/ui/pages/profile_edit_success.dart';
 import 'package:bank_sha/ui/pages/sign_in_page.dart';
 import 'package:bank_sha/ui/pages/sign_up_page.dart';
 import 'package:bank_sha/ui/pages/sign_up_set_ktp_page.dart';
@@ -36,18 +37,19 @@ class MyApp extends StatelessWidget {
         )
       ),
       routes: {
-        '/'                   : (context) => const SplashPage(),
-        '/onboarding'         : (context) => const OnboardingPage(),
-        '/sign-in'            : (context) => const SignInPage(),
-        '/sign-up'            : (context) => const SignUpPage(),
-        '/sign-up-set-profile': (context) => const SignUpSetProfilePage(),
-        '/sign-up-set-ktp'    : (context) => const SignUpSetKtpPage(),
-        '/sign-up-success'    : (context) => const SignUpSuccessPage(),
-        '/home-page'          : (context) => const HomePage(),
-        '/profile'            : (context) => const ProfilPage(),
-        '/profile-edit'       : (context) => const ProfileEditPage(),
-        '/pin'                : (context) => const PinPage(),
-        '/profile-edit-pin'   : (context) => const ProfileEditPinPage(),
+        '/'                    : (context) => const SplashPage(),
+        '/onboarding'          : (context) => const OnboardingPage(),
+        '/sign-in'             : (context) => const SignInPage(),
+        '/sign-up'             : (context) => const SignUpPage(),
+        '/sign-up-set-profile' : (context) => const SignUpSetProfilePage(),
+        '/sign-up-set-ktp'     : (context) => const SignUpSetKtpPage(),
+        '/sign-up-success'     : (context) => const SignUpSuccessPage(),
+        '/home-page'           : (context) => const HomePage(),
+        '/profile'             : (context) => const ProfilPage(),
+        '/profile-edit'        : (context) => const ProfileEditPage(),
+        '/pin'                 : (context) => const PinPage(),
+        '/profile-edit-pin'    : (context) => const ProfileEditPinPage(),
+        '/profile-edit-success': (context) => const ProfileEditSuccessPage(),
       },
     );
   }

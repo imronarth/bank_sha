@@ -39,7 +39,7 @@ class ProfileEditPinPage extends StatelessWidget {
                 CustomFilledButton(
                   title: "Update Now",
                   onPressed: () {
-                    
+                    Navigator.pushNamedAndRemoveUntil(context, '/profile-edit-success', (route) => false);
                   },
                 )
               ],
