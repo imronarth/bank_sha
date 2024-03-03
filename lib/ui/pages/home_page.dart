@@ -1,3 +1,4 @@
+import 'package:bank_sha/shared/shared_methods.dart';
 import 'package:bank_sha/shared/theme.dart';
 import 'package:bank_sha/ui/widgets/home_latest_transaction_item.dart';
 import 'package:bank_sha/ui/widgets/home_service_item.dart';
@@ -177,7 +178,7 @@ class HomePage extends StatelessWidget {
             style: whiteTextStyle,
           ),
           Text(
-            "Rp 12.500",
+            formatCurrency(52500),
             style: whiteTextStyle.copyWith(
               fontSize: 24,
               fontWeight: semiBold,
@@ -210,7 +211,7 @@ class HomePage extends StatelessWidget {
                 style: greenTextStyle.copyWith(fontWeight: semiBold),
               ),
               Text(
-                'of Rp.20.000',
+                'of ${formatCurrency(20000)}',
                 style: blackTextStyle.copyWith(fontWeight: semiBold),
               ),
             ],
@@ -302,33 +303,33 @@ class HomePage extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
               color: whiteColor,
             ),
-            child: const Column(
+            child: Column(
               children: [
                 HomeLatestTrasactionItem(
                     iconUrl: 'assets/ic_transaction_tu.png',
                     title: 'Top Up',
                     time: 'Yesteday',
-                    value: '+ 450.000'),
+                    value: '+ ${formatCurrency(450000, symbol: '')}'),
                 HomeLatestTrasactionItem(
                     iconUrl: 'assets/ic_transaction_cb.png',
                     title: 'Cashback',
                     time: 'Sep 11',
-                    value: '+ 44.000'),
+                    value: '+ ${formatCurrency(44000, symbol: '')}'),
                 HomeLatestTrasactionItem(
                     iconUrl: 'assets/ic_transaction_wd.png',
                     title: 'Withdraw',
                     time: 'Sep 2',
-                    value: '- 5.000'),
+                    value: '- ${formatCurrency(5000, symbol: '')}'),
                 HomeLatestTrasactionItem(
                     iconUrl: 'assets/ic_transaction_tf.png',
                     title: 'Transfer',
                     time: 'Aug 27',
-                    value: '- 123.500'),
+                    value: '- ${formatCurrency(123500, symbol: '')}'),
                 HomeLatestTrasactionItem(
                     iconUrl: 'assets/ic_transaction_sp.png',
                     title: 'Electric',
                     time: 'Feb 18',
-                    value: '- 12.300.000'),
+                    value: '- ${formatCurrency(12300000, symbol: '')}'),
               ],
             ),
           )
@@ -355,27 +356,18 @@ class HomePage extends StatelessWidget {
           const SizedBox(
             height: 14,
           ),
-         const SingleChildScrollView(
+          const SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
                 HomeUserItem(
-                  imageUrl: 'assets/img_friend1.png', 
-                  username: 'nisba'
-                ),
+                    imageUrl: 'assets/img_friend1.png', username: 'nisba'),
                 HomeUserItem(
-                  imageUrl: 'assets/img_friend2.png', 
-                  username: 'niset'
-                ),
+                    imageUrl: 'assets/img_friend2.png', username: 'niset'),
                 HomeUserItem(
-                  imageUrl: 'assets/img_friend3.png', 
-                  username: 'zahid'
-                ),
+                    imageUrl: 'assets/img_friend3.png', username: 'zahid'),
                 HomeUserItem(
-                  imageUrl: 'assets/img_friend4.png', 
-                  username: 'farel'
-                ),
-                
+                    imageUrl: 'assets/img_friend4.png', username: 'farel'),
               ],
             ),
           )
@@ -386,7 +378,7 @@ class HomePage extends StatelessWidget {
 
   Widget buildFriendlyTips() {
     return Container(
-      margin:  const EdgeInsets.only(
+      margin: const EdgeInsets.only(
         top: 30,
         bottom: 50,
       ),
@@ -395,41 +387,30 @@ class HomePage extends StatelessWidget {
         children: [
           Text(
             "Friendly Tips",
-            style: blackTextStyle.copyWith(
-              fontSize: 16,
-              fontWeight: semiBold
-            ),
+            style: blackTextStyle.copyWith(fontSize: 16, fontWeight: semiBold),
           ),
           const SizedBox(
             height: 14,
           ),
           const Center(
-            child: Wrap(
-              spacing: 17,
-              runSpacing: 18,
-              children: [
-                HomeTipsItem(
-                imageUrl: "assets/img_tips1.png", 
-                title: "Best tips for using a credit card", 
-                url: "https://www.google.com"
-                ),
-                HomeTipsItem(
-                imageUrl: "assets/img_tips2.png", 
-                title: "Spot the good pie of finance model", 
-                url: "https://www.pub.dev"
-                ),
-                HomeTipsItem(
-                imageUrl: "assets/img_tips3.png", 
-                title: "Great hack to get better advices", 
-                url: "https://www.google.com"
-                ),
-                HomeTipsItem(
-                imageUrl: "assets/img_tips4.png", 
-                title: "Save more penny buy this instead", 
-                url: "https://www.google.com"
-                ),
-              ]
-            ),
+            child: Wrap(spacing: 17, runSpacing: 18, children: [
+              HomeTipsItem(
+                  imageUrl: "assets/img_tips1.png",
+                  title: "Best tips for using a credit card",
+                  url: "https://www.google.com"),
+              HomeTipsItem(
+                  imageUrl: "assets/img_tips2.png",
+                  title: "Spot the good pie of finance model",
+                  url: "https://www.pub.dev"),
+              HomeTipsItem(
+                  imageUrl: "assets/img_tips3.png",
+                  title: "Great hack to get better advices",
+                  url: "https://www.google.com"),
+              HomeTipsItem(
+                  imageUrl: "assets/img_tips4.png",
+                  title: "Save more penny buy this instead",
+                  url: "https://www.google.com"),
+            ]),
           ),
         ],
       ),

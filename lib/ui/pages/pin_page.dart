@@ -1,3 +1,4 @@
+import 'package:bank_sha/shared/shared_methods.dart';
 import 'package:bank_sha/shared/theme.dart';
 import 'package:bank_sha/ui/widgets/buttons.dart';
 import 'package:flutter/material.dart';
@@ -18,15 +19,20 @@ class _PinPageState extends State<PinPage> {
         pinController.text = pinController.text + number;
       });
     }
-
-    if (pinController.text.length == 6 && pinController.text == "123123") {
-      Navigator.pop(context, true);
+    if (pinController.text.length == 6) {
+      if (pinController.text == "123123") {
+        Navigator.pop(context, true);
+      } else {
+        showCustomSnackBar(
+            context, 'Pin yang anda masukkan salah. Silahkan coba lagi.');
+      }
     }
   }
 
   deletePin() {
     if (pinController.text.isNotEmpty) {
-      pinController.text = pinController.text.substring(0, pinController.text.length - 1);
+      pinController.text =
+          pinController.text.substring(0, pinController.text.length - 1);
     }
   }
 
@@ -60,22 +66,16 @@ class _PinPageState extends State<PinPage> {
                   obscuringCharacter: '*',
                   enabled: false,
                   style: whiteTextStyle.copyWith(
-                    fontSize: 36,
-                    fontWeight: medium,
-                    letterSpacing: 14
-                  ),
+                      fontSize: 36, fontWeight: medium, letterSpacing: 14),
                   decoration: InputDecoration(
-                    disabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
+                      disabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
                         color: greyColor,
-                      )
-                    ),
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
+                      )),
+                      focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
                         color: greyColor,
-                      )
-                    )
-                  ),
+                      ))),
                 ),
               ),
               const SizedBox(
@@ -170,7 +170,6 @@ class _PinPageState extends State<PinPage> {
                   )
                 ],
               )
-          
             ],
           ),
         ),
