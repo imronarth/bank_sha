@@ -361,7 +361,7 @@ class HomePage extends StatelessWidget {
             child: Row(
               children: [
                 HomeUserItem(
-                    imageUrl: 'assets/img_friend1.png', username: 'nisba'),
+                    imageUrl: 'assets/img_friend1.png', username: 'nabnab'),
                 HomeUserItem(
                     imageUrl: 'assets/img_friend2.png', username: 'niset'),
                 HomeUserItem(
