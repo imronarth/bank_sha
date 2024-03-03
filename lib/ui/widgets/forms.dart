@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class CustomFormField extends StatelessWidget {
   final String title;
   final bool obscureText;
+  final TextInputType? keyboardType;
   final TextEditingController? controller;
 
   const CustomFormField({
@@ -11,6 +12,7 @@ class CustomFormField extends StatelessWidget {
     required this.title,
     this.obscureText = false,
     this.controller,
+    this.keyboardType,
   });
 
   @override
@@ -30,6 +32,7 @@ class CustomFormField extends StatelessWidget {
         TextFormField(
           obscureText: obscureText,
           controller: controller,
+          keyboardType: keyboardType,
           decoration: InputDecoration(
               border:
                   OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
