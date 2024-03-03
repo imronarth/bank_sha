@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:ffi';
 
 import 'package:bank_sha/models/sign_in_form_model.dart';
 import 'package:bank_sha/models/sign_up_form_model.dart';
@@ -85,15 +84,17 @@ class AuthService {
       const storage = FlutterSecureStorage();
       Map<String, String> values = await storage.readAll();
 
-      if (values['email'] == null || values['password'] == null) {
-        throw 'authenticated';
-      } else {
+      if (values['token'] != null) {
         final SignInFormModel data = SignInFormModel(
           email: values['email'],
           password: values['password'],
         );
 
+        // print('get user from local: ${data.toJson()}');
+
         return data;
+      } else {
+        throw 'unauthenticated';
       }
     } catch (e) {
       rethrow;
