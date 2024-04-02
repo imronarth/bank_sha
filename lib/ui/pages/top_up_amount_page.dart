@@ -226,7 +226,7 @@ class _TopUpAmountPageState extends State<TopUpAmountPage> {
                 await launchUrlString('https://demo.midtrans.com/');
 
                 if (!context.mounted) return;
-                await Navigator.pushNamedAndRemoveUntil(
+                Navigator.pushNamedAndRemoveUntil(
                     context, '/top-up-success', (route) => false);
               }
             },
