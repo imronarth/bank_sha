@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class CustomFormField extends StatelessWidget {
   final String title;
-  final bool obscureText;
+  final bool obscureText, isShowTitle;
   final TextInputType? keyboardType;
   final TextEditingController? controller;
 
@@ -13,6 +13,7 @@ class CustomFormField extends StatelessWidget {
     this.obscureText = false,
     this.controller,
     this.keyboardType,
+    this.isShowTitle = true,
   });
 
   @override
@@ -20,23 +21,28 @@ class CustomFormField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          title,
-          style: blackTextStyle.copyWith(
-            fontWeight: medium,
+        if (isShowTitle)
+          Text(
+            title,
+            style: blackTextStyle.copyWith(
+              fontWeight: medium,
+            ),
           ),
-        ),
-        const SizedBox(
-          height: 8,
-        ),
+        if (isShowTitle)
+          const SizedBox(
+            height: 8,
+          ),
         TextFormField(
           obscureText: obscureText,
           controller: controller,
           keyboardType: keyboardType,
           decoration: InputDecoration(
-              border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
-              contentPadding: const EdgeInsets.all(12)),
+            hintText: !isShowTitle ? title : null,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(14),
+            ),
+            contentPadding: const EdgeInsets.all(12),
+          ),
         )
       ],
     );
