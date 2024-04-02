@@ -1,5 +1,4 @@
 import 'package:bank_sha/shared/theme.dart';
-import 'package:bank_sha/ui/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 
 class BankItem extends StatelessWidget {
@@ -52,16 +51,6 @@ class BankItem extends StatelessWidget {
                 style: greyTextStyle.copyWith(
                   fontSize: 12,
                 ),
-              ),
-              const SizedBox(
-                height: 12,
-              ),
-              CustomFilledButton(
-                title: 'Continue',
-                onPressed: () {},
-              ),
-              const SizedBox(
-                height: 57,
               ),
             ],
           )

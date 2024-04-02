@@ -1,5 +1,6 @@
 import 'package:bank_sha/shared/theme.dart';
 import 'package:bank_sha/ui/widgets/bank_item.dart';
+import 'package:bank_sha/ui/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 
 class TopUpPage extends StatelessWidget {
@@ -40,7 +41,7 @@ class TopUpPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '1234 1234 1234',
+                    '1234 1234 1234 1234',
                     style: blackTextStyle.copyWith(
                       fontSize: 16,
                       fontWeight: medium,
@@ -75,6 +76,7 @@ class TopUpPage extends StatelessWidget {
           const BankItem(
             title: 'Bank BCA',
             imageUrl: "assets/img_bank_bca.png",
+            isSelected: true,
           ),
           const BankItem(
             title: 'Bank BNI',
@@ -87,6 +89,16 @@ class TopUpPage extends StatelessWidget {
           const BankItem(
             title: 'Bank OCBC',
             imageUrl: "assets/img_bank_ocbc.png",
+          ),
+          const SizedBox(
+            height: 12,
+          ),
+          CustomFilledButton(
+            title: 'Continue',
+            onPressed: () {},
+          ),
+          const SizedBox(
+            height: 57,
           ),
         ],
       ),
