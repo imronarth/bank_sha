@@ -1,6 +1,8 @@
 import 'package:bank_sha/shared/theme.dart';
 import 'package:bank_sha/ui/widgets/buttons.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class TopUpAmountPage extends StatefulWidget {
   const TopUpAmountPage({super.key});
@@ -32,6 +34,37 @@ class _TopUpAmountPageState extends State<TopUpAmountPage> {
         amountController.text = '0';
       }
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    amountController.addListener(() {
+      final text = amountController.text;
+      try {
+        // Coba untuk meng-parse nilai text menjadi integer
+        final parsedValue = int.parse(text.replaceAll('.', ''));
+
+        // Format nilai integer menjadi mata uang dengan menggunakan NumberFormat
+        amountController.value = amountController.value.copyWith(
+          text: NumberFormat.currency(
+            locale: 'id',
+            decimalDigits: 0,
+            symbol: '',
+          ).format(parsedValue),
+        );
+      } catch (e) {
+        // Tangani jika parsing gagal
+        // Misalnya, jika pengguna memasukkan karakter non-numeric
+        // Tetapkan nilai controller ke nilai sebelumnya untuk menghindari
+        // kesalahan saat rendering.
+        amountController.value = amountController.value.copyWith(
+          text: text,
+          selection: TextSelection.collapsed(offset: text.length),
+          composing: TextRange.empty,
+        );
+      }
+    });
   }
 
   @override
@@ -188,7 +221,15 @@ class _TopUpAmountPageState extends State<TopUpAmountPage> {
           ),
           CustomFilledButton(
             title: 'Checkout Now',
-            onPressed: () {},
+            onPressed: () async {
+              if (await Navigator.pushNamed(context, '/pin') == true) {
+                await launchUrlString('https://demo.midtrans.com/');
+
+                if (!context.mounted) return;
+                await Navigator.pushNamedAndRemoveUntil(
+                    context, '/top-up-success', (route) => false);
+              }
+            },
           ),
           const SizedBox(
             height: 25,
