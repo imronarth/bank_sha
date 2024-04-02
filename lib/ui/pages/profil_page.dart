@@ -55,7 +55,7 @@ class ProfilPage extends StatelessWidget {
                           shape: BoxShape.circle,
                           image: DecorationImage(
                             image: state.user.profilePicture == null
-                                ? AssetImage('assets/img_profile.png')
+                                ? const AssetImage('assets/img_profile.png')
                                 : NetworkImage(state.user.profilePicture!)
                                     as ImageProvider,
                           ),
@@ -98,6 +98,7 @@ class ProfilPage extends StatelessWidget {
                         onTap: () async {
                           if (await Navigator.pushNamed(context, '/pin') ==
                               true) {
+                            if (!context.mounted) return;
                             Navigator.pushNamed(context, '/profile-edit');
                           }
                         },
@@ -108,6 +109,7 @@ class ProfilPage extends StatelessWidget {
                         onTap: () async {
                           if (await Navigator.pushNamed(context, '/pin') ==
                               true) {
+                            if (!context.mounted) return;
                             Navigator.pushNamed(context, '/profile-edit-pin');
                           }
                         },

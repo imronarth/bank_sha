@@ -81,6 +81,7 @@ class _PinPageState extends State<PinPage> {
                 width: 200,
                 child: TextFormField(
                   controller: pinController,
+                  cursorColor: greyColor,
                   obscureText: true,
                   obscuringCharacter: '*',
                   enabled: false,
