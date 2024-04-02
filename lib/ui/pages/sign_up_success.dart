@@ -34,7 +34,7 @@ class SignUpSuccessPage extends StatelessWidget {
               title: "Get Started",
               onPressed: () {
                 Navigator.pushNamedAndRemoveUntil(
-                    context, "/home-page", (route) => false);
+                    context, "/home", (route) => false);
               },
             )
           ],

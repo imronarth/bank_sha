@@ -14,7 +14,7 @@ class SplashPage extends StatelessWidget {
         listener: (context, state) {
           if (state is AuthSuccess) {
             Navigator.pushNamedAndRemoveUntil(
-                context, '/home-page', (route) => false);
+                context, '/home', (route) => false);
           }
 
           if (state is AuthFailed) {

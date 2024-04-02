@@ -35,7 +35,7 @@ class _SignInPageState extends State<SignInPage> {
           }
           if (state is AuthSuccess) {
             Navigator.pushNamedAndRemoveUntil(
-                context, '/home-page', (route) => false);
+                context, '/home', (route) => false);
           }
         },
         builder: (context, state) {
@@ -111,7 +111,8 @@ class _SignInPageState extends State<SignInPage> {
                       title: "Sign In",
                       onPressed: () {
                         if (!validate()) {
-                          return showCustomSnackBar(context, "Email dan Password harus diisi.");
+                          return showCustomSnackBar(
+                              context, "Email dan Password harus diisi.");
                         }
                         context.read<AuthBloc>().add(
                               AuthLogin(

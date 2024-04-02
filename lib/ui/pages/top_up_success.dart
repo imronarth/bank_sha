@@ -34,7 +34,7 @@ class TopUpSuccessPage extends StatelessWidget {
               title: "Back to Home",
               onPressed: () {
                 Navigator.pushNamedAndRemoveUntil(
-                    context, "/home-page", (route) => false);
+                    context, "/home", (route) => false);
               },
             )
           ],
