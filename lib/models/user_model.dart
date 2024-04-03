@@ -26,16 +26,16 @@ class UserModel {
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
-        id            : json['id'],
-        name          : json['name'],
-        email         : json['email'],
-        username      : json['username'],
-        verified      : json['verified'],
+        id: json['id'],
+        name: json['name'],
+        email: json['email'],
+        username: json['username'],
+        verified: json['verified'],
         profilePicture: json['profile_picture'],
-        balance       : json['balance'],
-        cardNumber    : json['card_number'],
-        pin           : json['pin'],
-        token         : json['token'],
+        balance: json['balance'],
+        cardNumber: json['card_number'],
+        pin: json['pin'],
+        token: json['token'],
       );
   UserModel copyWith({
     String? username,
@@ -44,18 +44,18 @@ class UserModel {
     String? pin,
     String? password,
     int? balance,
-  }) => UserModel(
-    id            : id,
-    username      : username ?? this.username,
-    name          : name ?? this.name,
-    email         : email ?? this.email,
-    pin           : pin ?? this.pin,
-    password      : password ?? this.password,
-    balance       : balance ?? this.balance,
-    verified      : verified,
-    profilePicture: profilePicture,
-    cardNumber    : cardNumber,
-    token         : token,
-  );
-
+  }) =>
+      UserModel(
+        id: id,
+        username: username ?? this.username,
+        name: name ?? this.name,
+        email: email ?? this.email,
+        pin: pin ?? this.pin,
+        password: password ?? this.password,
+        balance: balance ?? this.balance,
+        verified: verified,
+        profilePicture: profilePicture,
+        cardNumber: cardNumber,
+        token: token,
+      );
 }
