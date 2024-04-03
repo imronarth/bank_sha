@@ -11,7 +11,7 @@ class DataProviderPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Beli Data'),
+        title: const Text('Beli Data'),
       ),
       body: ListView(
         padding: const EdgeInsets.symmetric(
