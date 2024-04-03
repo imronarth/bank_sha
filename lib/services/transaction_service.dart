@@ -14,7 +14,7 @@ class TransactionService {
           '$baseUrl/top_ups',
         ),
         headers: {
-          'Authorizatiom': token,
+          'Authorization': token,
         },
         body: data.toJson(),
       );
