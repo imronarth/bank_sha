@@ -4,6 +4,7 @@ import 'package:bank_sha/ui/pages/data_package_page.dart';
 import 'package:bank_sha/ui/pages/data_provider_page.dart';
 import 'package:bank_sha/ui/pages/home_page.dart';
 import 'package:bank_sha/ui/pages/onboarding_page.dart';
+import 'package:bank_sha/ui/pages/package_success.dart';
 import 'package:bank_sha/ui/pages/pin_page.dart';
 import 'package:bank_sha/ui/pages/profil_page.dart';
 import 'package:bank_sha/ui/pages/profile_edit_page.dart';
@@ -70,6 +71,7 @@ class MyApp extends StatelessWidget {
           '/transfer-success'    : (context) => const TransferSuccessPage(),
           '/data-provider'       : (context) => const DataProviderPage(),
           '/data-package'       : (context) => const DataPackagePage(),
+          '/data-success'       : (context) => const DataSuccessPage(),
         },
       ),
     );
